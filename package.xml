@@ -1,0 +1,20 @@
+<package format="2">
+  <name>xiaoqiang_audio</name>
+  <version>0.0.1</version>
+  <description>
+      text to speech 
+  </description>
+  <license>MIT</license>
+  <author email="randoms@bwbot.org">Randoms</author>
+  <maintainer email="randoms@bwbot.org">Randoms</maintainer>
+  <url type="website">http://github.com/bluewhalerobot/xiaoqiang_audio</url>
+  <url type="bugtracker">https://github.com/bluewhalerobot/xiaoqiang_audio/issues</url>
+  <url type="repository">https://github.com/bluewhalerobot/xiaoqiang_audio</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>audio_common_msgs</depend>
+</package>
