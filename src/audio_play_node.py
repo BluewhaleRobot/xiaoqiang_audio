@@ -28,12 +28,15 @@
 import time
 import rospy
 from audio_common_msgs.msg import AudioData
+from std_msgs.msg import Bool
 from subprocess import Popen
 import subprocess
 import os
 
 if __name__ == "__main__":
     rospy.init_node("xiaoqiang_audio_play", anonymous=False)
+    # get to know if a audio is playing
+    playing_audio_pub = rospy.Publisher("~audio_status", Bool, queue_size=10)
 
     processing_flag = False
     def play_audio(audio_data):
@@ -54,5 +57,9 @@ if __name__ == "__main__":
         processing_flag = False
     sub = rospy.Subscriber("~audio", AudioData, play_audio)
 
+    rate = rospy.Rate(50)
     while not rospy.is_shutdown():
-        time.sleep(1)
+        audio_status = Bool()
+        audio_status.data = processing_flag
+        playing_audio_pub.publish(audio_status)
+        rate.sleep()
