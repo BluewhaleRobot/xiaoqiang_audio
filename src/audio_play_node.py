@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # encoding=utf-8
 # The MIT License (MIT)
 #
@@ -46,7 +46,7 @@ if __name__ == "__main__":
         processing_flag = True
         # write content to file 
         audio_file_name = "audio_" + str(int(time.time()))
-        with open(audio_file_name, "w+") as audio_file:
+        with open(audio_file_name, "w+b") as audio_file:
             audio_file.write(audio_data.data)
         # play it with mplaer
         play = Popen(["mplayer", audio_file_name], universal_newlines=True,
