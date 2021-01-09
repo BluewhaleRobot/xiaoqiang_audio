@@ -48,9 +48,9 @@ if __name__ == "__main__":
         audio_file_name = "audio_" + str(int(time.time()))
         with open(audio_file_name, "w+b") as audio_file:
             audio_file.write(audio_data.data)
-        # play it with mplaer
-        play = Popen(["mplayer", audio_file_name], universal_newlines=True,
-            stdin=subprocess.PIPE,stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+        # play it with mplayer
+        play = Popen("mplayer " + audio_file_name, universal_newlines=True,
+            stdin=subprocess.PIPE,stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True
         )
         play.wait()
         os.remove(audio_file_name)
